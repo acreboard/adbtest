@@ -1,0 +1,279 @@
+::selection {
+  background-color: var(--primary-color-light);
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+.btnPrimary {
+  @extend .btn;
+
+  color: white;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color-dark);
+
+  &:hover { color: white; }
+  &:focus { box-shadow: 0 0 0 0.25rem var(--primary-color-light); }
+}
+
+.btnOutlinePrimary {
+  @extend .btn;
+
+  background-color: transparent;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+
+  &:hover {
+    color: white;
+    background-color: var(--primary-color);
+  }
+
+  &:focus { box-shadow: 0 0 0 0.25rem var(--primary-color-light); }
+}
+
+.card {
+  @extend .card;
+
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04),0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+  color: var(--abdcaptureview-black);
+
+  padding: 8px;
+}
+
+.card3D {
+  @extend .card;
+
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+  &:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08),0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  }
+}
+
+// General container for pages with siderbar + main content
+.twoColumnsContainer {
+  @extend
+    .d-flex,
+    .justify-content-between,
+    .align-items-start;
+
+  flex-direction: row;
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+  }
+
+  // Make the main content full width
+  & > div:nth-child(2) {
+    @extend
+      .flex-grow-1,
+      .w-100;
+  }
+}
+
+.box {
+  @extend
+    .card,
+    .flex-grow-1,
+    .p-3,
+    .mb-3;
+}
+
+.sidebar {
+  position: sticky;
+  top: 79px;
+
+  @include media-breakpoint-down(sm) {
+    position: relative;
+    width: 100%;
+    top: 0;
+  }
+
+  .sidebarBox {
+    @extend
+      .card,
+      .d-flex,
+      .flex-column,
+      .justify-content-start,
+      .align-items-center,
+      .flex-grow-0,
+      .flex-shrink-0,
+      .mb-3,
+      .p-2;
+
+    width: 280px;
+    margin-right: 16px;
+
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+    }
+  }
+}
+
+.verticalNavigation {
+  @extend
+    .nav,
+    .flex-column,
+    .nav-pills,
+    .text-center,
+    .align-self-stretch;
+
+  a {
+    color: var(--abdcaptureview-grey);
+    font-weight: 500;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  .nav-link.active {
+    color: var(--primary-color);
+    background-color: var(--abdcaptureview-grey-light);
+  }
+}
+
+.drag-zone {
+  @extend
+    .align-self-center,
+    .pl-1,
+    .pr-4,
+    .pt-1,
+    .pb-1;
+
+  cursor: grab;
+
+  &.drag-zone-disabled {
+    cursor: not-allowed;
+
+    &:active { cursor: not-allowed; }
+  }
+
+  &:active { cursor: grabbing; }
+}
+
+.badge {
+  @extend
+    .badge,
+    .badge-pill,
+    .p-2;
+
+  font-size: 13px;
+}
+
+.badgeLight {
+  @extend .badge-light;
+
+  background-color: var(--abdcaptureview-grey-light);
+}
+
+.container {
+  max-width: 960px;
+}
+
+.smallContainer {
+  max-width: 540px;
+  margin: 16px auto;
+}
+
+.turbolinks-progress-bar {
+  background-color: var(--primary-color);
+  height: 2px;
+}
+
+.gravatar {
+  border-radius: 100%;
+}
+
+.checkboxSwitch {
+  @extend 
+    .custom-control,
+    .custom-switch;
+
+  & > input[type="checkbox"] {
+    @extend .custom-control-input;
+
+    &:focus ~ label::before {
+      box-shadow: 0 0 0 0.25rem var(--primary-color-light);
+    }
+
+    &:active ~ label::before {
+      background-color: var(--primary-color);
+    }
+  }
+
+  & > label {
+    @extend .custom-control-label;
+
+    &::before {
+      transform: scale(1.2);
+    }
+  }
+
+  & > input:checked ~ label::before {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color-dark) !important;
+  }
+
+  & > input:focus ~ label::before {
+    border-color: var(--primary-color-dark) !important;
+  }
+}
+
+.selectPicker {
+  @extend
+    .custom-select;
+
+  &:focus {
+    box-shadow: 0 0 0 0.25rem var(--primary-color-light);
+    border-color: var(--primary-color-dark);
+  }
+}
+
+.link {
+  cursor: pointer;
+  &:hover { text-decoration: underline; }
+}
+
+.actionLink {
+  color: var(--abdcaptureview-black);
+  display: flex;
+  cursor: pointer;
+  align-self: center;
+  margin-right: 12px;
+  
+  &:hover {
+    color: var(--primary-color);
+    text-decoration: underline !important;
+  }
+
+  svg {
+    margin-right: 4px;
+    align-self: center;
+  }
+
+  &.actionLinkDisabled {
+    color: var(--abdcaptureview-grey) !important;
+  
+    text-decoration: none !important;
+    cursor: not-allowed;
+  }
+}
+
+.oauthProviderBtn {
+  @extend
+    .btn,
+    .btn-block,
+    .btn-outline-dark,
+    .mt-2,
+    .mb-2;
+
+  .oauthProviderText {
+    @extend .ml-2;
+    
+    vertical-align: middle;
+  }
+}

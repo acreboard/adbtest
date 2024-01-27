@@ -1,0 +1,27 @@
+{
+  "name": "abdreservations",
+  "version": "7.0.0",
+  "description": "https://abdreservations.pages.dev",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/acreboard/abdreservations.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://abdreservations.pages.dev"
+  },
+  "homepage": "https://abdreservations.pages.dev",
+  "devDependencies": {},
+  "dependencies": {
+    "improved-yarn-audit": "^2.3.1"
+  }
+}

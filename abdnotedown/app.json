@@ -1,0 +1,7 @@
+{
+  "name": "abdnotedown",
+  "description": "ABDNotedown is an Nodejs Markdown based knowledge base/FAQ/Wiki app with powerful lunr search",
+  "repository": "https://github.com/acreboard/abdnotedown",
+  "logo": "",
+  "keywords": ["nodejs", "knowledgebase", "faq", "wiki", "markdown"]
+}
